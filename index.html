@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>অনলাইন পরীক্ষা পোর্টাল</title>
+    <title>অনলাইন ভর্তি পরীক্ষা পোর্টাল</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <!-- লগইন সেকশন -->
+        <!-- লগইন স্ক্রিন -->
         <div id="login-screen" class="card">
-            <h2>ছাত্র-ছাত্রীদের অনলাইন পরীক্ষা</h2>
+            <h2>ভর্তি পরীক্ষা: ইংরেজি (Noun)</h2>
             <p>পরীক্ষায় অংশ নিতে আপনার তথ্য দিন:</p>
             <form id="login-form">
                 <input type="text" id="student-name" placeholder="আপনার নাম" required>
                 <input type="text" id="student-roll" placeholder="রোল নম্বর" required>
-                <input type="password" id="student-pass" placeholder="পরীক্ষার পাসকোড" required>
+                <input type="password" id="student-pass" placeholder="পাসকোড / পিন (PIN)" required>
                 <button type="submit" class="btn">পরীক্ষা শুরু করুন</button>
             </form>
         </div>
 
-        <!-- পরীক্ষা সেকশন -->
+        <!-- পরীক্ষা স্ক্রিন -->
         <div id="quiz-screen" class="card" style="display: none;">
             <div class="quiz-header">
                 <h3>পরীক্ষা চলছে...</h3>
-                <div id="timer">সময় বাকি: <span id="time">02:00</span></div>
+                <div id="timer">সময় বাকি: <span id="time">30:00</span></div>
             </div>
             
             <div id="question-container">
@@ -35,15 +35,18 @@
             <button id="next-btn" class="btn" onclick="nextQuestion()">পরবর্তী প্রশ্ন</button>
         </div>
 
-        <!-- ফলাফল সেকশন -->
+        <!-- ফলাফল ও উত্তর দেখার স্ক্রিন -->
         <div id="result-screen" class="card" style="display: none;">
             <h2>পরীক্ষা সম্পন্ন হয়েছে!</h2>
-            <p id="score-text"></p>
-            <p class="success-msg">আপনার ফলাফল সফলভাবে জমা হয়েছে।</p>
+            <div id="score-text"></div>
+            
+            <!-- পরীক্ষা শেষ করার পর ৫০টি প্রশ্নের সঠিক উত্তর ও ব্যাখ্যা এখানে দেখাবে -->
+            <div id="question-container-review" style="max-height: 400px; overflow-y: auto; margin-top: 20px; text-align: left;"></div>
+            
+            <p class="success-msg" style="margin-top: 15px;">আপনার ফলাফল সফলভাবে গুগল শিটে জমা হয়েছে।</p>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-  </html>
-  
+</html>
