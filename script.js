@@ -1,11 +1,11 @@
-// আপনার Google Apps Script-এর Web App URL এখানে বসানো আছে
+// আপনার Google Apps Script-এর Web App URL
 const scriptURL = 'https://script.google.com/macros/s/AKfycbzF1wBZfzdHmVmnPizbPt4njVJK8fZVHVecoXeodCgJ1FD2oP9kiBn8QJz9zwvpKXU_/exec';
 
 // এডমিশন স্ট্যান্ডার্ড ৫০টি Noun-এর প্রশ্ন
 const questions = [
     { question: "What kind of noun is 'Cattle'?", options: ["Proper", "Common", "Collective", "Material"], answer: 2, explanation: "'Cattle' একটি Collective Noun (গবাদিপশুর সমষ্টি)।" },
     { question: "The word 'Water' is a — noun.", options: ["Proper", "Common", "Material", "Abstract"], answer: 2, explanation: "'Water' একটি Material Noun কারণ এটি পরিমাপ করা যায় কিন্তু গণনা করা যায় না।" },
-    { question: "What is the noun form of the word 'Wise'?", options: ["Wisely", "Wisdom", "Wisen", "Wiser"], answer: 1, explanation: "'Wise' (সচেতন/জ্ঞानी)-এর Noun রূপ হলো 'Wisdom' (জ্ঞান)।" },
+    { question: "What is the noun form of the word 'Wise'?", options: ["Wisely", "Wisdom", "Wisen", "Wiser"], answer: 1, explanation: "'Wise' (সচেতন/জ্ঞানী)-এর Noun রূপ হলো 'Wisdom' (জ্ঞান)।" },
     { question: "The jury — divided in their opinions.", options: ["was", "were", "is", "has"], answer: 1, explanation: "Collective noun-এ মতবিরোধ বোঝালে verb প্লুরাল (were) হয়।" },
     { question: "What kind of noun is 'Kindness'?", options: ["Proper", "Common", "Material", "Abstract"], answer: 3, explanation: "'Kindness' একটি গুণ বা ভাববাচক নাম, তাই এটি Abstract Noun।" },
     { question: "A flock of sheep. Here 'Flock' is a — noun.", options: ["Proper", "Common", "Collective", "Material"], answer: 2, explanation: "'Flock' একটি Collective Noun।" },
@@ -24,7 +24,7 @@ const questions = [
     { question: "What is the plural of 'Ox'?", options: ["Oxes", "Oxen", "Oxens", "Ox"], answer: 1, explanation: "'Ox'-এর প্লুরাল হলো 'Oxen'।" },
     { question: "A library of books. Here 'Library' is a — noun.", options: ["Proper", "Common", "Collective", "Abstract"], answer: 2, explanation: "'Library' হলো বইয়ের সমষ্টি, তাই এটি Collective Noun।" },
     { question: "What is the noun form of 'Strong'?", options: ["Strongly", "Strength", "Strengthen", "Strongness"], answer: 1, explanation: "'Strong'-এর Noun হলো 'Strength'।" },
-    { question: "Mathematics — a difficult subject.", options: ["are", "is", "were", "have"], answer: 1, explanation: "বিষয়ের নাম দেখতে দেখতে প্লুরাল মনে হলেও এগুলো Singular Noun।" },
+    { question: "Mathematics — a difficult subject.", options: ["are", "is", "were", "have"], answer: 1, explanation: "বিষয়ের নাম দেখতে প্লুরাল মনে হলেও এগুলো Singular Noun।" },
     { question: "What is the plural form of 'Formula'?", options: ["Formulas", "Formulae", "Formulas/Formulae", "Formuli"], answer: 2, explanation: "Formula-এর প্লুরাল Formulas বা Formulae উভয়ই হতে পারে।" },
     { question: "The crowd — very big.", options: ["were", "was", "are", "have"], answer: 1, explanation: "'Crowd' একটি Collective Noun যা এখানে একক ইউনিট হিসেবে বোঝানো হয়েছে।" },
     { question: "What kind of noun is 'Family'?", options: ["Proper", "Common", "Collective", "Material"], answer: 2, explanation: "সদস্যদের সমষ্টি হিসেবে 'Family' একটি Collective Noun।" },
@@ -44,7 +44,7 @@ const questions = [
     { question: "What is the noun form of 'Poverty' base adjective?", options: ["Poor", "Poorer", "Poorest", "Impoverished"], answer: 0, explanation: "'Poverty' শব্দটির মূল Adjective রূপ হলো 'Poor'।" },
     { question: "Ten miles — a long distance.", options: ["are", "is", "were", "have"], answer: 1, explanation: "নির্দিষ্ট দূরত্ব, সময় বা পরিমাণ একসাথে বোঝালে Singular Verb বসে।" },
     { question: "What is the feminine gender of 'Author'?", options: ["Authoress", "Author", "Authoress/Author", "Lady-author"], answer: 2, explanation: "আধুনিক ইংরেজিতে Author বা Authoress উভয়ই ব্যবহার করা হয়।" },
-    { question: "His hair — black.", options: ["are", "is", "were", "have"], answer: 1, explanation: "সামগ্রik অর্থে 'Hair' একটি Uncountable Noun এবং Singular হিসেবে ব্যবহৃত হয়।" },
+    { question: "His hair — black.", options: ["are", "is", "were", "have"], answer: 1, explanation: "সামগ্রিক অর্থে 'Hair' একটি Uncountable Noun এবং Singular হিসেবে ব্যবহৃত হয়।" },
     { question: "What is the noun form of 'Succeed'?", options: ["Success", "Successful", "Successfully", "Succession"], answer: 0, explanation: "'Succeed'-এর Noun হলো 'Success'।" },
     { question: "A — of players.", options: ["Team", "Crowd", "Class", "Panel"], answer: 0, explanation: "খেলোয়াড়দের সমষ্টিকে 'Team' বলা হয়।" },
     { question: "What is the plural of 'Mouse'?", options: ["Mouses", "Mice", "Mices", "Meese"], answer: 1, explanation: "'Mouse'-এর প্লুরাল হলো 'Mice'।" },
@@ -61,6 +61,7 @@ let studentAnswers = [];
 let studentData = {};
 let timer;
 let timeLeft = 1800; // ৩০ মিনিট (১৮০০ সেকেন্ড)
+let selectedOptionIndex = null;
 
 const loginForm = document.getElementById('login-form');
 const loginScreen = document.getElementById('login-screen');
@@ -107,7 +108,6 @@ function loadQuestion() {
     `;
 }
 
-let selectedOptionIndex = null;
 window.selectOption = function(index) {
     selectedOptionIndex = index;
     let buttons = document.querySelectorAll('.option-btn');
@@ -129,7 +129,7 @@ window.nextQuestion = function() {
     let q = questions[currentQuestionIndex];
     let isCorrect = (selectedOptionIndex === q.answer);
 
-    // উত্তর সেভ করা
+    // প্রতিটি উত্তরের তথ্য রেকর্ড রাখা
     studentAnswers.push({
         questionNumber: currentQuestionIndex + 1,
         question: q.question,
@@ -158,22 +158,29 @@ function submitQuiz() {
     quizScreen.style.display = 'none';
     resultScreen.style.display = 'block';
     
-    document.getElementById('score-text').innerHTML = `<h3>আপনি ${questions.length} টির মধ্যে ${score} নম্বর পেয়েছেন।</h3>`;
+    document.getElementById('score-text').innerHTML = `
+        <h3>আপনার মোট প্রাপ্ত নম্বর: <span style="color: #007bff;">${score}</span> / ${questions.length}</h3>
+    `;
 
-    // রেজাল্ট পেজে সব প্রশ্নের সঠিক উত্তর ও ব্যাখ্যা দেখানোর ব্যবস্থা
-    let reviewHtml = "<h3>সকল প্রশ্নের সঠিক উত্তর ও ব্যাখ্যা:</h3><div class='review-list'>";
-    studentAnswers.forEach((ans, idx) => {
+    // ভুল ও সঠিক উত্তর রিভিউ করার সেকশন তৈরি
+    let reviewHtml = "<h4 style='margin-top:20px; border-bottom: 2px solid #ccc; padding-bottom: 5px;'>উত্তরপত্র ও ব্যাখ্যা:</h4>";
+    
+    studentAnswers.forEach((ans) => {
+        let bgColor = ans.isCorrect ? '#d4edda' : '#f8d7da';
+        let borderColor = ans.isCorrect ? '#28a745' : '#dc3545';
+        let statusText = ans.isCorrect ? "✅ সঠিক উত্তর" : "❌ ভুল উত্তর";
+
         reviewHtml += `
-            <div class="review-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; background: ${ans.isCorrect ? '#d4edda' : '#f8d7da'};">
-                <p><strong>প্রশ্ন ${ans.questionNumber}: ${ans.question}</strong></p>
-                <p>আপনার উত্তর: ${ans.selected}</p>
-                <p>সঠিক উত্তর: ${ans.correctAnswer}</p>
-                <p><small>ব্যাখ্যা: ${ans.explanation}</small></p>
+            <div style="margin-bottom: 15px; padding: 12px; border-left: 5px solid ${borderColor}; background-color: ${bgColor}; border-radius: 4px; text-align: left;">
+                <p style="margin: 0 0 5px 0;"><strong>${ans.questionNumber}. ${ans.question}</strong></p>
+                <p style="margin: 3px 0;">স্ট্যাটাস: <strong>${statusText}</strong></p>
+                <p style="margin: 3px 0;">আপনার উত্তর: <span style="color: ${ans.isCorrect ? 'green' : 'red'};">${ans.selected}</span></p>
+                ${!ans.isCorrect ? `<p style="margin: 3px 0;">সঠিক উত্তর: <strong style="color: green;">${ans.correctAnswer}</strong></p>` : ''}
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #555;">💡 <strong>ব্যাখ্যা:</strong> ${ans.explanation}</p>
             </div>
         `;
     });
-    reviewHtml += "</div>";
-    
+
     document.getElementById('question-container-review').innerHTML = reviewHtml;
 
     let payload = {
@@ -184,16 +191,12 @@ function submitQuiz() {
         answers: studentAnswers
     };
 
-    // Google Sheets-এ ডেটা পাঠানো
+    // Google Sheets-এ সেভ করা
     fetch(scriptURL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
-    }).then(() => {
-        console.log('Success');
-    }).catch(error => {
-        console.error('Error!', error.message);
-    });
-        }
-    
+    }).catch(error => console.error('Error!', error.message));
+     }
+     
